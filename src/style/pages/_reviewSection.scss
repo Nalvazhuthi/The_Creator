@@ -1,0 +1,265 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.review-container {
+  @include flex-space-between;
+  flex-direction: column;
+  padding: 50px 100px;
+  gap: 20px;
+
+  .header {
+    font-size: 4vw;
+    text-align: center;
+    font-weight: 600;
+
+    .highlight {
+      .messgae {
+        font-size: 4vw;
+      }
+      .svg {
+        // position: relative;
+        top: -20px;
+      }
+    }
+  }
+
+  .header-wrapper {
+    width: 100%;
+    @include flex-space-between;
+    align-items: center;
+
+    .message {
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+
+    .pagination {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .navigation {
+        width: 40px;
+        height: 40px;
+        padding: 5px;
+        background-color: $minor-pink;
+        border-radius: 50%;
+        @include flex-center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover:not(.navigate) {
+          background-color: darken($minor-pink, 10%);
+        }
+      }
+
+      .navigate {
+        background-color: transparent;
+        border: 1px solid $major-pink;
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .review-section {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    gap: 25px;
+    padding-bottom: 10px; // to avoid cut off content near scrollbar area
+
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+
+    .review-wrapper {
+      width: 508px;
+      border-radius: 16px;
+      background-color: $minor-pink;
+      padding: 25px 50px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+      box-sizing: border-box;
+
+      &:nth-child(even) {
+        background-color: $major-pink;
+      }
+
+      img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .userName {
+        font-weight: 600;
+        font-size: 1.2rem;
+      }
+
+      .review {
+        font-size: 1rem;
+        line-height: 1.4;
+        color: #333;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .review-container {
+    padding: 40px 50px;
+
+    .header {
+      font-size: 6vw;
+
+      .highlight .messgae {
+        font-size: 6vw;
+      }
+    }
+
+    .header-wrapper {
+      width: 100%;
+      // flex-direction: column;
+      // align-items: flex-start;
+      // gap: 15px;
+
+      .message {
+        font-size: 1.2rem;
+      }
+    }
+
+    .review-section {
+      gap: 20px;
+
+      .review-wrapper {
+        width: 400px;
+        padding: 20px 30px;
+
+        img {
+          width: 70px;
+          height: 70px;
+        }
+
+        .userName {
+          font-size: 1.1rem;
+        }
+
+        .review {
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .review-container {
+    padding: 30px 20px !important;
+
+    .header {
+      font-size: 7vw;
+
+      .highlight .messgae {
+        font-size: 7vw;
+      }
+    }
+
+    .header-wrapper {
+      align-items: center;
+      text-align: center;
+
+      .message {
+        font-size: 1rem;
+      }
+
+      .pagination {
+        justify-content: center;
+        gap: 15px;
+      }
+    }
+
+    .review-section {
+      .review-wrapper {
+        width: 300px;
+        padding: 15px 20px;
+
+        img {
+          width: 60px;
+          height: 60px;
+        }
+
+        .userName {
+          font-size: 1rem;
+        }
+
+        .review {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .review-container {
+    padding: 20px 10px !important;
+
+    .header {
+      font-size: 8vw;
+      .highlight .svg {
+        top: -10px;
+      }
+      .highlight .messgae {
+        font-size: 8vw;
+      }
+    }
+
+    .header-wrapper {
+      flex-direction: column;
+      gap: 10px;
+
+      .message {
+        font-size: 0.9rem;
+      }
+
+      .pagination {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+
+        .navigation {
+          width: 35px;
+          height: 35px;
+          padding: 4px;
+        }
+      }
+    }
+
+    .review-section {
+      gap: 15px;
+
+      .review-wrapper {
+        width: 260px;
+        padding: 12px 15px;
+
+        img {
+          width: 50px;
+          height: 50px;
+        }
+
+        .userName {
+          font-size: 0.9rem;
+        }
+
+        .review {
+          font-size: 0.85rem;
+        }
+      }
+    }
+  }
+}

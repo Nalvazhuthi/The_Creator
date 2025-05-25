@@ -1,0 +1,42 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.how-we-work-container {
+  width: 100%;
+  height: 100%;
+  padding: 64px 0;
+  @include flex-center;
+  position: relative;
+  .how-we-work-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 70%;
+    position: relative;
+    z-index: 10;
+    .header,
+    .sub-header,
+    .message {
+      text-align: center;
+    }
+    .header {
+      font-size: 4.5vw;
+    }
+    .sub-header {
+      font-size: 1.5rem;
+    }
+    .message {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .how-we-work-container {
+    .how-we-work-wrapper {
+      .header {
+        font-size: 8vw;
+      }
+    }
+  }
+}

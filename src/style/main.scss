@@ -1,0 +1,19 @@
+@use "./abstract/functions";
+@use "./abstract/mixins";
+@use "./abstract/variables";
+
+@use "./base/base";
+@use "./base/global";
+@use "./base/reset";
+@use "./base/typography";
+
+@use "./components/button";
+@use "./components/slider";
+
+@use "./pages/home";
+@use "./pages/partnership";
+@use "./pages/howWeWork";
+@use "./pages/strategy";
+@use "./pages/reviewSection";
+@use "./pages/charity";
+@use "./pages/footer";
