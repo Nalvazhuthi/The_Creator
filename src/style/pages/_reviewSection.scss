@@ -4,7 +4,7 @@
 .review-container {
   @include flex-space-between;
   flex-direction: column;
-  padding: 50px 100px;
+  padding: 100px;
   gap: 20px;
 
   .header {
@@ -16,6 +16,7 @@
       .messgae {
         font-size: 4vw;
       }
+
       .svg {
         // position: relative;
         top: -20px;
@@ -70,7 +71,8 @@
     padding-bottom: 10px; // to avoid cut off content near scrollbar area
 
     &::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera */
+      display: none;
+      /* Chrome, Safari, Opera */
     }
 
     .review-wrapper {
@@ -211,9 +213,16 @@
 
     .header {
       font-size: 8vw;
-      .highlight .svg {
-        top: -10px;
+
+      .highlight {
+        padding: 5px 12px;
+
+        .svg {
+
+          top: -10px;
+        }
       }
+
       .highlight .messgae {
         font-size: 8vw;
       }
