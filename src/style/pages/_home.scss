@@ -8,10 +8,14 @@
   overflow: hidden;
 
   .header-wrapper {
-    padding: 56px 100px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 30px;
     @include flex-space-between;
     z-index: 20;
-    position: relative;
+    background: $primary-color;
 
     .header-section,
     .nav-section {
@@ -87,9 +91,9 @@
       top: -1000%;
       left: 0;
       width: 100%;
-      background-color: $primary-color;
       transition: top 0.2s linear;
       z-index: -1;
+      background: $primary-color;
 
       &.open {
         top: 100%;
