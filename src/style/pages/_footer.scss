@@ -1,8 +1,12 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
 .footer-container {
   color: #18372b;
   text-align: center;
   padding: 4rem 2rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
   .footer-title {
     font-size: 2rem;
     font-weight: 700;
@@ -36,14 +40,14 @@
     }
 
     button {
-      padding: 1rem;
+      padding: 1rem 2rem;
       background: #f74fd4;
       color: #000;
       font-weight: 600;
       border: none;
       cursor: pointer;
       font-size: 1rem;
-      border-radius: 0 999px 999px 0;
+      border-radius: 999px;
 
       &:hover {
         opacity: 0.9;
@@ -71,6 +75,30 @@
       display: flex;
       justify-content: center;
       gap: 2rem;
+
+      .nav {
+        position: relative;
+        cursor: pointer;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: $major-pink; // Change color as needed
+          transition: width 0.3s ease;
+        }
+
+        &:hover {
+          color: $major-pink; // New text color on hover
+
+          &::after {
+            width: 100%;
+          }
+        }
+      }
 
       a {
         text-decoration: none;
@@ -118,6 +146,7 @@
       .footer-socials {
         justify-content: center;
       }
+
       .footer-links {
         display: none !important;
       }

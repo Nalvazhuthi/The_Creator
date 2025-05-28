@@ -4,7 +4,7 @@ import { HowWeWorkPath1, HowWeWorkPath2 } from "../assets/svgs/exportPaths"
 
 const WhatWeDo = () => {
   return (
-    <div id='how-we-work' className='how-we-work-container'>
+    <div className='how-we-work-container'>
       <div className="bg-wrapper">
         <div className="left">
           <div className="path"><HowWeWorkPath1 /></div>

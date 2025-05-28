@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import avatar1 from "../assets/images/community/Logo-1.png";
 import avatar2 from "../assets/images/community/Logo-2.png";
 import avatar3 from "../assets/images/community/Logo-3.png";
@@ -7,48 +7,24 @@ import avatar5 from "../assets/images/community/Logo-5.png";
 
 const Charity = () => {
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5];
-  const topRowRef = useRef<HTMLDivElement>(null);
-  const bottomRowRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const autoScroll = (element: HTMLDivElement | null, direction: number) => {
-      if (!element) return;
-      let scrollPosition = 0;
-      const scrollSpeed = 0.5;
-
-      const scroll = () => {
-        scrollPosition += scrollSpeed * direction;
-
-        if (scrollPosition >= element.scrollWidth / 2) {
-          scrollPosition = 0;
-        } else if (scrollPosition <= 0) {
-          scrollPosition = element.scrollWidth / 2;
-        }
-
-        element.scrollLeft = scrollPosition;
-        requestAnimationFrame(scroll);
-      };
-
-      requestAnimationFrame(scroll);
-    };
-
-    autoScroll(topRowRef.current, 1);     // Scroll right
-    autoScroll(bottomRowRef.current, -1); // Scroll left
-  }, []);
 
   return (
     <div className="charity-section" id='charity'>
       <div className="charity-card pink-card">
         <div className="icons-section">
-          <div className="row" ref={topRowRef}>
-            {[...avatars, ...avatars].map((avatar, index) => (
-              <img key={`top-${index}`} src={avatar} alt={`Charity logo ${index}`} />
-            ))}
+          <div className="row">
+            <div className="scroll-content">
+              {[...avatars, ...avatars].map((avatar, index) => (
+                <img key={`top-${index}`} src={avatar} alt={`Charity logo ${index}`} />
+              ))}
+            </div>
           </div>
-          <div className="row" ref={bottomRowRef}>
-            {[...avatars, ...avatars].map((avatar, index) => (
-              <img key={`bottom-${index}`} src={avatar} alt={`Charity logo ${index}`} />
-            ))}
+          <div className="row reverse">
+            <div className="scroll-content">
+              {[...avatars, ...avatars].map((avatar, index) => (
+                <img key={`bottom-${index}`} src={avatar} alt={`Charity logo ${index}`} />
+              ))}
+            </div>
           </div>
         </div>
         <p className="description">
@@ -70,5 +46,3 @@ const Charity = () => {
 };
 
 export default Charity;
-
-

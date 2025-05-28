@@ -14,13 +14,25 @@ const Home = () => {
   const delay = 800;
 
   const scrollToSection = (id: string) => {
-    setMenuOpen(false);
-    setTimeout(() => {
+    const scrollWithOffset = () => {
       const section = document.getElementById(id);
       if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
+        const yOffset = -100; // Negative to scroll *above* the element
+        const y =
+          section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({ top: y, behavior: "smooth" });
       }
-    }, delay);
+    };
+
+    if (menuOpen) {
+      setMenuOpen(false);
+      setTimeout(() => {
+        scrollWithOffset();
+      }, delay);
+    } else {
+      scrollWithOffset();
+    }
   };
 
   return (
@@ -67,11 +79,14 @@ const Home = () => {
             <div className="nav" onClick={() => scrollToSection("review")}>
               Review
             </div>
-            <div className="sales" onClick={() => scrollToSection("charity")}>
+            <div
+              className="sales nav"
+              onClick={() => scrollToSection("charity")}
+            >
               charity
             </div>
             <div
-              className="sales button"
+              className="sales button nav"
               onClick={() => scrollToSection("join")}
             >
               Join the creator

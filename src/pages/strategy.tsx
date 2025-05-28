@@ -26,7 +26,7 @@ const Strategy = () => {
   ];
 
   return (
-    <div className="strategy-container">
+    <div className="strategy-container" id="how-we-work">
       {strategy.map((stat, index) => (
         <div className="strategy-wrapper" key={`${index}-${stat.strategyName}`}>
           <img src={stat.image} alt="" />

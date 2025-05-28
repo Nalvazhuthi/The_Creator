@@ -28,19 +28,27 @@
         overflow: hidden;
 
         .row {
-          display: flex;
-          gap: 1rem;
-          overflow-x: hidden;
-          scroll-behavior: smooth;
+          overflow: hidden;
+          white-space: nowrap;
 
-          img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: #fff;
-            padding: 0.5rem;
-            flex-shrink: 0;
-            object-fit: contain;
+          .scroll-content {
+            display: inline-flex;
+            gap: 1rem;
+            animation: scrollLeft 20s linear infinite;
+
+            img {
+              width: 80px;
+              height: 80px;
+              border-radius: 50%;
+              background: #fff;
+              padding: 0.5rem;
+              flex-shrink: 0;
+              object-fit: contain;
+            }
+          }
+
+          &.reverse .scroll-content {
+            animation-direction: reverse;
           }
         }
       }
@@ -72,6 +80,17 @@
     }
   }
 }
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 
 @media (max-width: 1024px) {
   .charity-section {
