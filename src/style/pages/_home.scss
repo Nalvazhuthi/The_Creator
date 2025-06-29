@@ -39,9 +39,15 @@
 
     .nav-section {
       gap: 60px;
-
     }
 
+    .join-section {
+      cursor: pointer;
+      &:hover {
+        transform: translateY(-2px);
+        transition: all 0.2s linear;
+      }
+    }
     .nav-section {
       .nav {
         position: relative;
@@ -138,9 +144,7 @@
           }
         }
       }
-
     }
-
   }
 
   .home-wrapper {
@@ -173,8 +177,6 @@
         line-height: 1.4;
         position: relative;
       }
-
-
 
       .join-wrapper {
         background-color: $secondary-color;
@@ -244,7 +246,6 @@
 
     .home-wrapper {
       .bg-wrapper {
-
         .left,
         .right {
           width: 40%;

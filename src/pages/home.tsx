@@ -59,7 +59,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="join-section button">Join The Creator</div>
+          <div className="join-section button" onClick={() => scrollToSection("join")}>Join The Creator</div>
 
           <div
             className={`hamburger ${menuOpen && "open"}`}
