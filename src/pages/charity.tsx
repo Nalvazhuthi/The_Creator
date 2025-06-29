@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import avatar1 from "../assets/images/community/Logo-1.png";
 import avatar2 from "../assets/images/community/Logo-2.png";
 import avatar3 from "../assets/images/community/Logo-3.png";
